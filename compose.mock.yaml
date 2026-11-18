@@ -1,0 +1,18 @@
+include:
+  - compose.yaml
+services:
+  sample-app:
+    environment:
+      OVERPASS_URL: http://overpass-mock:8080/api/interpreter
+    depends_on:
+      - overpass-mock
+
+  overpass-mock:
+    image: wiremock/wiremock:3.13.2
+    user: "${UID:-1000}:${GID:-1000}"
+    volumes:
+      - ./wiremock/mappings:/home/wiremock/mappings
+      - ./wiremock/files:/home/wiremock/__files
+    entrypoint: [ "/docker-entrypoint.sh", "--disable-gzip" ]
+    ports:
+      - "8000:8080"

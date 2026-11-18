@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "type": "module",
+  "devDependencies": {
+    "@cronn/element-snapshot": "^0.32.2",
+    "@playwright/test": "1.63.0",
+    "@types/node": "24.19.2"
+  }
+}

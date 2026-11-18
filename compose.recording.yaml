@@ -1,0 +1,18 @@
+include:
+  - compose.yaml
+services:
+  sample-app:
+    environment:
+      # Die Anwendung ruft die Overpass-API nicht mehr direkt, sondern über WireMock auf
+      OVERPASS_URL: http://wiremock:8080/api/interpreter
+
+  wiremock:
+    image: wiremock/wiremock:3.13.2
+    user: "${UID:-1000}:${GID:-1000}"
+    ports:
+      - "8082:8080"
+    volumes:
+      - ./wiremock/extensions:/var/wiremock/extensions
+      - ./wiremock/mappings:/home/wiremock/mappings
+      - ./wiremock/files:/home/wiremock/__files
+    entrypoint: [ "/docker-entrypoint.sh", "--disable-gzip" ]

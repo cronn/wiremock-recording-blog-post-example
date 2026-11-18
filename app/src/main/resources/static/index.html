@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Brunnenfinder</title>
+</head>
+<body>
+<h1>Brunnenfinder</h1>
+<p>Trinkwasserstellen in der Bonner Innenstadt, die in den letzten zwölf Monaten neu kartiert oder geändert wurden.</p>
+<button id="search">Suchen</button>
+<p id="status" role="status"></p>
+<table>
+  <thead>
+  <tr>
+    <th>OSM-ID</th>
+    <th>Name</th>
+    <th>Breitengrad</th>
+    <th>Längengrad</th>
+    <th>Geändert am</th>
+    <th>Version</th>
+  </tr>
+  </thead>
+  <tbody id="results"></tbody>
+</table>
+<script>
+  document.getElementById('search').addEventListener('click', async () => {
+    const status = document.getElementById('status')
+    const response = await fetch('/api/drinking-water')
+    if (!response.ok) {
+      status.textContent = `Fehler bei der Suche (HTTP ${response.status})`
+      return
+    }
+    const drinkingWater = await response.json()
+    document.getElementById('results').replaceChildren(...drinkingWater.map(({ id, name, lat, lon, timestamp, version }) => {
+      const row = document.createElement('tr')
+      for (const value of [id, name ?? '–', lat, lon, timestamp, version]) {
+        const cell = document.createElement('td')
+        cell.textContent = value
+        row.append(cell)
+      }
+      return row
+    }))
+    status.textContent = `${drinkingWater.length} Trinkwasserstellen gefunden`
+  })
+</script>
+</body>
+</html>

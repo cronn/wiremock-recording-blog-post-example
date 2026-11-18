@@ -1,0 +1,25 @@
+{
+  "id" : "fe077c84-dbd5-4a5c-b2aa-737f36d8340e",
+  "name" : "app-neue-Trinkwasserstellen-in-Bonn",
+  "request" : {
+    "url" : "/api/interpreter",
+    "method" : "POST",
+    "bodyPatterns" : [ {
+      "equalToXml" : "<osm-script output=\"json\" timeout=\"25\">\n  <query type=\"node\">\n    <has-kv k=\"amenity\" v=\"drinking_water\"/>\n    <bbox-query s=\"50.725\" w=\"7.085\" n=\"50.740\" e=\"7.110\"/>\n    <newer than=\"${xmlunit.ignore}\"/>\n  </query>\n  <print mode=\"meta\"/>\n</osm-script>\n",
+      "enablePlaceholders" : true,
+      "ignoreOrderOfSameNode" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\n  \"version\": 0.6,\n  \"generator\": \"Overpass API 0.7.62.11 87bfad18\",\n  \"osm3s\": {\n    \"timestamp_osm_base\": \"2026-11-18T13:07:29Z\",\n    \"copyright\": \"The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.\"\n  },\n  \"elements\": [\n\n{\n  \"type\": \"node\",\n  \"id\": 4730237265,\n  \"lat\": 50.7356279,\n  \"lon\": 7.1022636,\n  \"timestamp\": \"2026-08-15T21:01:02Z\",\n  \"version\": 9,\n  \"changeset\": 187508390,\n  \"user\": \"marcie43\",\n  \"uid\": 12869096,\n  \"tags\": {\n    \"access\": \"yes\",\n    \"amenity\": \"drinking_water\",\n    \"bottle\": \"yes\",\n    \"check_date\": \"2026-08-15\",\n    \"cold_water\": \"no\",\n    \"covered\": \"no\",\n    \"fee\": \"no\",\n    \"hot_water\": \"no\",\n    \"iced_water\": \"no\",\n    \"indoor\": \"no\",\n    \"lit\": \"yes\",\n    \"man_made\": \"water_tap\",\n    \"opening_hours\": \"24/7\",\n    \"room_temperature_water\": \"yes\",\n    \"seasonal\": \"no\",\n    \"warm_water\": \"no\",\n    \"wheelchair\": \"yes\"\n  }\n},\n{\n  \"type\": \"node\",\n  \"id\": 7415084516,\n  \"lat\": 50.7356620,\n  \"lon\": 7.0982783,\n  \"timestamp\": \"2026-08-15T21:01:02Z\",\n  \"version\": 4,\n  \"changeset\": 187508390,\n  \"user\": \"marcie43\",\n  \"uid\": 12869096,\n  \"tags\": {\n    \"access\": \"yes\",\n    \"amenity\": \"drinking_water\",\n    \"bottle\": \"no\",\n    \"check_date\": \"2026-08-15\",\n    \"covered\": \"no\",\n    \"dog\": \"no\",\n    \"fee\": \"no\",\n    \"fountain\": \"bubbler\",\n    \"indoor\": \"no\",\n    \"wheelchair\": \"yes\"\n  }\n},\n{\n  \"type\": \"node\",\n  \"id\": 12010116863,\n  \"lat\": 50.7357229,\n  \"lon\": 7.0963459,\n  \"timestamp\": \"2026-08-15T21:01:02Z\",\n  \"version\": 4,\n  \"changeset\": 187508390,\n  \"user\": \"marcie43\",\n  \"uid\": 12869096,\n  \"tags\": {\n    \"access\": \"yes\",\n    \"amenity\": \"drinking_water\",\n    \"bottle\": \"yes\",\n    \"check_date\": \"2026-08-15\",\n    \"covered\": \"no\",\n    \"dog\": \"yes\",\n    \"fee\": \"no\",\n    \"fountain\": \"bubbler\",\n    \"indoor\": \"no\",\n    \"wheelchair\": \"yes\"\n  }\n},\n{\n  \"type\": \"node\",\n  \"id\": 14274403843,\n  \"lat\": 50.7376499,\n  \"lon\": 7.1072176,\n  \"timestamp\": \"2026-10-16T07:26:53Z\",\n  \"version\": 2,\n  \"changeset\": 190590389,\n  \"user\": \"ch2465\",\n  \"uid\": 24648959,\n  \"tags\": {\n    \"amenity\": \"drinking_water\",\n    \"fountain\": \"bubbler\"\n  }\n},\n{\n  \"type\": \"node\",\n  \"id\": 14274470152,\n  \"lat\": 50.7357904,\n  \"lon\": 7.1077818,\n  \"timestamp\": \"2026-10-16T07:27:02Z\",\n  \"version\": 2,\n  \"changeset\": 190590389,\n  \"user\": \"ch2465\",\n  \"uid\": 24648959,\n  \"tags\": {\n    \"amenity\": \"drinking_water\",\n    \"fountain\": \"bubbler\"\n  }\n}\n\n  ]\n}\n",
+    "headers" : {
+      "Server" : "nginx",
+      "Date" : "Wed, 18 Nov 2026 13:09:00 GMT",
+      "Content-Type" : "application/json"
+    }
+  },
+  "uuid" : "fe077c84-dbd5-4a5c-b2aa-737f36d8340e",
+  "persistent" : true,
+  "insertionIndex" : 3
+}
